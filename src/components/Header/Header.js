@@ -81,17 +81,11 @@ const TabletHeader = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(1rem, -0.714rem + 4.571vw, 3rem);
   margin: 0px 48px;
 
   @media ${({ theme }) => theme.breakpoints.tabletAndDown} {
     margin: 0px 0px;
-    gap: 40px;
-  }
-
-  @media ${({ theme }) => theme.breakpoints.tabletAndDown} {
-    margin: 0px 0px;
-    gap: 40px;
   }
 `;
 
