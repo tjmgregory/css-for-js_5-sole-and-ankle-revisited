@@ -1,7 +1,7 @@
 export default {
   breakpoints: {
-    laptopAndDown: `${1300 / 16}rem`,
-    tabletAndDown: `${950 / 16}rem`,
-    phoneAndDown: `${600 / 16}rem`
+    laptopAndDown: `(max-width: ${1300 / 16}rem)`,
+    tabletAndDown: `(max-width: ${950 / 16}rem)`,
+    phoneAndDown: `(max-width: ${600 / 16}rem)`
   }
 }
