@@ -7,7 +7,6 @@ import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
 import UnstyledButton from '../UnstyledButton'
 import Icon from '../Icon'
-import SearchInput from '../SearchInput';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
