@@ -33,11 +33,15 @@ const Wrapper = styled.div`
   padding-left: 32px;
   padding-right: 32px;
 
-  @media${({ theme }) => theme.breakpoints.laptopAndDown} {
+  @media ${({ theme }) => theme.breakpoints.laptopAndDown} {
     & * {
       display: none;
     }
     height: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
   }
 `;
 
