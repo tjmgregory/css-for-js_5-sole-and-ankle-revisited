@@ -33,14 +33,16 @@ const ShoeIndex = ({ sortId, setSortId }) => {
             <HiddenFirstBreadcrumbs />
             <Title>Running</Title>
           </TitleWrapper>
-          <Select
-            label="Sort"
-            value={sortId}
-            onChange={(ev) => setSortId(ev.target.value)}
-          >
-            <option value="newest">Newest Releases</option>
-            <option value="price">Price</option>
-          </Select>
+          <SortFilterWrapper>
+            <Select
+              label="Sort"
+              value={sortId}
+              onChange={(ev) => setSortId(ev.target.value)}
+            >
+              <option value="newest">Newest Releases</option>
+              <option value="price">Price</option>
+            </Select>
+          </SortFilterWrapper>
         </Header>
         <Spacer size={32} />
         <ShoeGrid />
@@ -88,5 +90,11 @@ const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: ${WEIGHTS.medium};
 `;
+
+const SortFilterWrapper = styled.div`
+  @media ${({ theme }) => theme.breakpoints.phoneAndDown} {
+    display: none;
+  }
+`
 
 export default ShoeIndex;
