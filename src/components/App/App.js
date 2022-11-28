@@ -22,6 +22,10 @@ const App = () => {
 const Main = styled.main`
   padding: 64px 32px;
 
+  @media ${({ theme }) => theme.breakpoints.tabletAndDown} {
+    padding: 48px 32px;
+  }
+
   @media ${({ theme }) => theme.breakpoints.phoneAndDown} {
     padding: 32px 16px;
   }
