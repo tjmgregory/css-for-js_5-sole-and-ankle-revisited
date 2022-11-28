@@ -5,19 +5,17 @@ import { COLORS, WEIGHTS } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
+import UnstyledButton from '../UnstyledButton'
+import Icon from '../Icon'
+import SearchInput from '../SearchInput';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
 
-  // For our mobile hamburger menu, we'll want to use a button
-  // with an onClick handler, something like this:
-  //
-  // <button onClick={() => setShowMobileMenu(true)}>
-
   return (
     <header>
       <SuperHeader />
-      <MainHeader>
+      <DesktopHeader>
         <Side>
           <Logo />
         </Side>
@@ -30,7 +28,21 @@ const Header = () => {
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
         <Side />
-      </MainHeader>
+      </DesktopHeader>
+
+      <TabletHeader>
+        <Logo />
+        <Nav>
+          <UnstyledButton>
+            <Icon id="shopping-bag" />
+          </UnstyledButton>
+          <UnstyledButton>
+            <Icon id="search" />
+          </UnstyledButton>
+          <UnstyledButton onClick={() => setShowMobileMenu((current) => !current)}><Icon id='menu' /></UnstyledButton>
+        </Nav>
+      </TabletHeader>
+
 
       <MobileMenu
         isOpen={showMobileMenu}
@@ -40,18 +52,47 @@ const Header = () => {
   );
 };
 
-const MainHeader = styled.div`
+const DesktopHeader = styled.div`
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+
+  @media ${({ theme }) => theme.breakpoints.tabletAndDown} {
+    display: none;
+  }
+`;
+
+const TabletHeader = styled.div`
+  display: none;
+
+  align-items: center;
+  padding: 18px 32px;
+  height: 72px;
+  border-bottom: 1px solid ${COLORS.gray[300]};
+
+  justify-content: space-between;
+
+  @media ${({ theme }) => theme.breakpoints.tabletAndDown} {
+    display: flex;
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+
+  @media ${({ theme }) => theme.breakpoints.tabletAndDown} {
+    margin: 0px 0px;
+    gap: 40px;
+  }
+
+  @media ${({ theme }) => theme.breakpoints.tabletAndDown} {
+    margin: 0px 0px;
+    gap: 40px;
+  }
 `;
 
 const Side = styled.div`
