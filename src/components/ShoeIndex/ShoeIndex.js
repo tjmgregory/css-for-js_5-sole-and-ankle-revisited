@@ -9,12 +9,30 @@ import Spacer from '../Spacer';
 import ShoeSidebar from '../ShoeSidebar';
 import ShoeGrid from '../ShoeGrid';
 
+const PageBreadcrumbs = (props) => <Breadcrumbs {...props}>
+  <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
+  <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
+  <Breadcrumbs.Crumb href="/sale/shoes">
+    Shoes
+  </Breadcrumbs.Crumb>
+</Breadcrumbs>;
+
+const HiddenFirstBreadcrumbs = styled(PageBreadcrumbs)`
+  display: none;
+
+  @media ${({ theme }) => theme.breakpoints.tabletAndDown} {
+    display: flex;
+  }
+`
 const ShoeIndex = ({ sortId, setSortId }) => {
   return (
     <Wrapper>
       <MainColumn>
         <Header>
-          <Title>Running</Title>
+          <TitleWrapper>
+            <HiddenFirstBreadcrumbs />
+            <Title>Running</Title>
+          </TitleWrapper>
           <Select
             label="Sort"
             value={sortId}
@@ -28,19 +46,15 @@ const ShoeIndex = ({ sortId, setSortId }) => {
         <ShoeGrid />
       </MainColumn>
       <LeftColumn>
-        <Breadcrumbs>
-          <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale/shoes">
-            Shoes
-          </Breadcrumbs.Crumb>
-        </Breadcrumbs>
+        <PageBreadcrumbs />
         <Spacer size={42} />
         <ShoeSidebar />
       </LeftColumn>
     </Wrapper>
   );
 };
+
+const TitleWrapper = styled.div``
 
 const Wrapper = styled.div`
   display: flex;
@@ -51,6 +65,9 @@ const Wrapper = styled.div`
 
 const LeftColumn = styled.div`
   flex-basis: 248px;
+  @media ${({ theme }) => theme.breakpoints.tabletAndDown} {
+    display: none;
+  }
 `;
 
 const MainColumn = styled.div`
@@ -61,6 +78,10 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
+  @media ${({ theme }) => theme.breakpoints.tabletAndDown} {
+    align-items: center;
+  }
 `;
 
 const Title = styled.h2`
