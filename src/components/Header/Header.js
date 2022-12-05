@@ -40,13 +40,11 @@ const Header = () => {
           </UnstyledButton>
           <UnstyledButton onClick={() => setShowMobileMenu((current) => !current)}><Icon id='menu' /></UnstyledButton>
         </Nav>
+        <MobileMenu
+          isOpen={showMobileMenu}
+          onDismiss={() => setShowMobileMenu(false)}
+        />
       </TabletHeader>
-
-
-      <MobileMenu
-        isOpen={showMobileMenu}
-        onDismiss={() => setShowMobileMenu(false)}
-      />
     </header>
   );
 };
