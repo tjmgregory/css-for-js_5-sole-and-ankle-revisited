@@ -1,32 +1,35 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
-import styled from 'styled-components/macro';
-import { DialogOverlay, DialogContent } from '@reach/dialog';
+import React from "react";
+import styled from "styled-components/macro";
+import { DialogOverlay, DialogContent } from "@reach/dialog";
 
-import { QUERIES } from '../../constants';
+import { COLORS, QUERIES } from "../../constants";
 
-import UnstyledButton from '../UnstyledButton';
-import Icon from '../Icon';
-import VisuallyHidden from '../VisuallyHidden';
+import UnstyledButton from "../UnstyledButton";
+import Icon from "../Icon";
+import VisuallyHidden from "../VisuallyHidden";
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
   return (
-    <Overlay isOpen={isOpen} onDismiss={onDismiss}>
-      <Content aria-label='Site Menu'>
-        <button onClick={onDismiss}>Dismiss menu</button>
-        <nav>
-          <a href="/sale">Sale</a>
-          <a href="/new">New&nbsp;Releases</a>
-          <a href="/men">Men</a>
-          <a href="/women">Women</a>
-          <a href="/kids">Kids</a>
-          <a href="/collections">Collections</a>
-        </nav>
-        <footer>
-          <a href="/terms">Terms and Conditions</a>
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/contact">Contact Us</a>
-        </footer>
+    <Overlay isOpen={true} onDismiss={onDismiss}>
+      <Content aria-label="Site Menu">
+        <CloseButton onClick={onDismiss}>
+          <VisuallyHidden>Dismiss menu</VisuallyHidden>
+          <Icon id="close" />
+        </CloseButton>
+        <Nav>
+          <A href="/sale">Sale</A>
+          <A href="/new">New&nbsp;Releases</A>
+          <A href="/men">Men</A>
+          <A href="/women">Women</A>
+          <A href="/kids">Kids</A>
+          <A href="/collections">Collections</A>
+        </Nav>
+        <Footer>
+          <A href="/terms">Terms and Conditions</A>
+          <A href="/privacy">Privacy Policy</A>
+          <A href="/contact">Contact Us</A>
+        </Footer>
       </Content>
     </Overlay>
   );
@@ -38,12 +41,50 @@ const Overlay = styled(DialogOverlay)`
   bottom: 0;
   left: 0;
   right: 0;
-  background-colour: hsla(0 0 0 50%);
-`
+  background-color: hsla(0 0% 10% / 0.5);
+`;
 
 const Content = styled(DialogContent)`
-  
+  position: fixed;
+  right: 0;
+  height: 100%;
+  width: min(300px, 80%);
+  background-color: ${COLORS.white};
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px;
+  overflow-y: scroll;
+`;
+
+const CloseButton = styled(UnstyledButton)`
+  align-self: flex-end;
+  margin-top: -10px;
+  margin-right: -10px;
+`
+
+const Nav = styled.nav`
+  display: flex;
+  flex-direction: column;
+  gap: ${22 / 16}rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+`
+
+const Footer = styled.nav`
+  display: flex;
+  flex-direction: column;
+  gap: ${14 / 16}rem;
+`
+
+const A = styled.a`
+  text-decoration: none;
+  color: ${COLORS.gray[900]};
+  &:hover{
+    color: ${COLORS.secondary};
+  }
 `
 
 export default MobileMenu;
-
