@@ -81,7 +81,11 @@ const TabletHeader = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: clamp(1rem, -0.714rem + 4.571vw, 3rem);
+  gap: clamp(
+    1rem,
+    9.2vw - 4rem,
+    5rem
+  );
   margin: 0px 48px;
 
   @media ${({ theme }) => theme.breakpoints.tabletAndDown} {
