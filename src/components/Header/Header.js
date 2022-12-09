@@ -19,7 +19,7 @@ const Header = () => {
           <Logo />
         </Side>
         <Nav>
-          <NavLink href="/sale">Sale</NavLink>
+          <NavLink href="/sale">Sale some really long title</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
           <NavLink href="/men">Men</NavLink>
           <NavLink href="/women">Women</NavLink>
@@ -56,6 +56,8 @@ const DesktopHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  white-space: nowrap;
+  overflow-x: scroll;
 
   @media ${({ theme }) => theme.breakpoints.tabletAndDown} {
     display: none;
