@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, WEIGHTS } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
@@ -55,7 +54,7 @@ const DesktopHeader = styled.div`
   align-items: baseline;
   padding: 18px 32px;
   height: 72px;
-  border-bottom: 1px solid ${COLORS.gray[300]};
+  border-bottom: 1px solid ${({theme}) => theme.color.gray['300']};
   white-space: nowrap;
   overflow-x: scroll;
 
@@ -70,7 +69,7 @@ const TabletHeader = styled.div`
   align-items: center;
   padding: 18px 32px;
   height: 72px;
-  border-bottom: 1px solid ${COLORS.gray[300]};
+  border-bottom: 1px solid ${({theme}) => theme.color.gray['300']};
 
   justify-content: space-between;
 
@@ -101,11 +100,11 @@ const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: ${COLORS.gray[900]};
-  font-weight: ${WEIGHTS.medium};
+  color: ${({theme}) => theme.color.gray['900']};
+  font-weight: ${({theme}) => theme.font.weight.medium};
 
   &:first-of-type {
-    color: ${COLORS.secondary};
+    color: ${({theme}) => theme.color.secondary};
   }
 `;
 
