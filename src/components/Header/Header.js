@@ -53,10 +53,9 @@ const DesktopHeader = styled.div`
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  height: 72px;
   border-bottom: 1px solid ${({theme}) => theme.color.gray['300']};
   white-space: nowrap;
-  overflow-x: scroll;
+  overflow-x: auto;
 
   @media ${({ theme }) => theme.breakpoints.tabletAndDown} {
     display: none;
@@ -68,7 +67,6 @@ const TabletHeader = styled.div`
 
   align-items: center;
   padding: 18px 32px;
-  height: 72px;
   border-bottom: 1px solid ${({theme}) => theme.color.gray['300']};
 
   justify-content: space-between;
